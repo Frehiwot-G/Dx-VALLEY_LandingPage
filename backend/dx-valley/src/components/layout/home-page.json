@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_layout_home_pages",
+  "info": {
+    "displayName": "HomePage"
+  },
+  "options": {},
+  "attributes": {
+    "email": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "Address": {
+      "type": "text"
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_layout_works",
+  "info": {
+    "displayName": "work",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "how_we_work": {
+      "type": "component",
+      "repeatable": true,
+      "component": "component.description"
+    }
+  }
+}
