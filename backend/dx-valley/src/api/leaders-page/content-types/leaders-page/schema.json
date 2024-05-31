@@ -1,11 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "landing_pages",
+  "collectionName": "leaders_pages",
   "info": {
-    "singularName": "landing-page",
-    "pluralName": "landing-pages",
-    "displayName": "landing_Page",
-    "description": ""
+    "singularName": "leaders-page",
+    "pluralName": "leaders-pages",
+    "displayName": "Leaders_page"
   },
   "options": {
     "draftAndPublish": true
@@ -21,7 +20,7 @@
     "block": {
       "type": "dynamiczone",
       "components": [
-        "layout.home-page"
+        "layout.leaders"
       ]
     }
   }

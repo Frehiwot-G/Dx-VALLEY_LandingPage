@@ -1,7 +1,7 @@
 {
-  "collectionName": "components_component_project_descriptions",
+  "collectionName": "components_component_home_page_topics",
   "info": {
-    "displayName": "Project_description"
+    "displayName": "HomePage_topic"
   },
   "options": {},
   "attributes": {
@@ -10,13 +10,6 @@
     },
     "description": {
       "type": "text"
-    },
-    "image": {
-      "allowedTypes": [
-        "images"
-      ],
-      "type": "media",
-      "multiple": false
     },
     "link": {
       "type": "component",

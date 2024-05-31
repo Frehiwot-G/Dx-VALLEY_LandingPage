@@ -1,11 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "landing_pages",
+  "collectionName": "projects_pages",
   "info": {
-    "singularName": "landing-page",
-    "pluralName": "landing-pages",
-    "displayName": "landing_Page",
-    "description": ""
+    "singularName": "projects-page",
+    "pluralName": "projects-pages",
+    "displayName": "Projects_page"
   },
   "options": {
     "draftAndPublish": true
@@ -21,7 +20,8 @@
     "block": {
       "type": "dynamiczone",
       "components": [
-        "layout.home-page"
+        "layout.projects",
+        "layout.work"
       ]
     }
   }

@@ -1,7 +1,7 @@
 {
-  "collectionName": "components_component_project_descriptions",
+  "collectionName": "components_component_about_descriptions",
   "info": {
-    "displayName": "Project_description"
+    "displayName": "About_description"
   },
   "options": {},
   "attributes": {
@@ -17,11 +17,6 @@
       ],
       "type": "media",
       "multiple": false
-    },
-    "link": {
-      "type": "component",
-      "repeatable": false,
-      "component": "component.link"
     }
   }
 }

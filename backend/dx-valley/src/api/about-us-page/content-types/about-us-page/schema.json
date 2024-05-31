@@ -1,10 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "landing_pages",
+  "collectionName": "about_us_pages",
   "info": {
-    "singularName": "landing-page",
-    "pluralName": "landing-pages",
-    "displayName": "landing_Page",
+    "singularName": "about-us-page",
+    "pluralName": "about-us-pages",
+    "displayName": "AboutUs_page",
     "description": ""
   },
   "options": {
@@ -21,7 +21,7 @@
     "block": {
       "type": "dynamiczone",
       "components": [
-        "layout.home-page"
+        "layout.about"
       ]
     }
   }

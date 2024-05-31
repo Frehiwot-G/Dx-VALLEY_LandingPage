@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_layout_leaders",
+  "info": {
+    "displayName": "Leaders"
+  },
+  "options": {},
+  "attributes": {
+    "leaders": {
+      "displayName": "Leaders",
+      "type": "component",
+      "repeatable": true,
+      "component": "component.leaders"
+    }
+  }
+}

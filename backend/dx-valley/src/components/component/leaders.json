@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_component_leaders",
+  "info": {
+    "displayName": "Leaders"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "position": {
+      "type": "text"
+    },
+    "proverb": {
+      "type": "text"
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

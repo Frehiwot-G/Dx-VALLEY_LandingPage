@@ -6,10 +6,11 @@
   },
   "options": {},
   "attributes": {
-    "how_we_work": {
+    "work": {
+      "displayName": "how_we_work",
       "type": "component",
       "repeatable": true,
-      "component": "component.description"
+      "component": "component.how-we-work"
     }
   }
 }

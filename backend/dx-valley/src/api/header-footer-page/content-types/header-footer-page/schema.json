@@ -1,10 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "landing_pages",
+  "collectionName": "header_footer_pages",
   "info": {
-    "singularName": "landing-page",
-    "pluralName": "landing-pages",
-    "displayName": "landing_Page",
+    "singularName": "header-footer-page",
+    "pluralName": "header-footer-pages",
+    "displayName": "Header_Footer_page",
     "description": ""
   },
   "options": {
@@ -18,10 +18,11 @@
     "description": {
       "type": "text"
     },
-    "block": {
+    "blocks": {
       "type": "dynamiczone",
       "components": [
-        "layout.home-page"
+        "layout.heading",
+        "layout.footer"
       ]
     }
   }
