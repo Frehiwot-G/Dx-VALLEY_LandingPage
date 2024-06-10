@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_layout_categories",
+  "info": {
+    "displayName": "Category",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "category": {
+      "displayName": "category",
+      "type": "component",
+      "repeatable": true,
+      "component": "component.category"
+    }
+  }
+}

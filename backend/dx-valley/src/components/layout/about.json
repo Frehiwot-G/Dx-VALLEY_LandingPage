@@ -19,6 +19,12 @@
       "type": "component",
       "repeatable": false,
       "component": "component.about-description"
+    },
+    "about_page_2": {
+      "displayName": "about_page_2",
+      "type": "component",
+      "repeatable": true,
+      "component": "component.about-page-2"
     }
   }
 }

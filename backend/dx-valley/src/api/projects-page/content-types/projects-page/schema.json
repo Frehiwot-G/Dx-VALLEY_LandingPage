@@ -4,7 +4,8 @@
   "info": {
     "singularName": "projects-page",
     "pluralName": "projects-pages",
-    "displayName": "Projects_page"
+    "displayName": "Projects_page",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -21,7 +22,8 @@
       "type": "dynamiczone",
       "components": [
         "layout.projects",
-        "layout.work"
+        "layout.work",
+        "layout.category"
       ]
     }
   }
