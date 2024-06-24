@@ -917,6 +917,41 @@ export interface ApiHeaderFooterPageHeaderFooterPage extends Schema.SingleType {
   };
 }
 
+export interface ApiIncubationCenterIncubationCenter
+  extends Schema.CollectionType {
+  collectionName: 'incubation_centers';
+  info: {
+    singularName: 'incubation-center';
+    pluralName: 'incubation-centers';
+    displayName: 'incubation_center';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    email: Attribute.Email;
+    date_founded: Attribute.Date;
+    industry: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::incubation-center.incubation-center',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::incubation-center.incubation-center',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiLandingPageLandingPage extends Schema.SingleType {
   collectionName: 'landing_pages';
   info: {
@@ -1017,6 +1052,36 @@ export interface ApiProjectsPageProjectsPage extends Schema.SingleType {
   };
 }
 
+export interface ApiSubscriptionSubscription extends Schema.CollectionType {
+  collectionName: 'subscriptions';
+  info: {
+    singularName: 'subscription';
+    pluralName: 'subscriptions';
+    displayName: 'Subscription';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    email: Attribute.Email;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::subscription.subscription',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::subscription.subscription',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1039,9 +1104,11 @@ declare module '@strapi/types' {
       'api::contact-us-page.contact-us-page': ApiContactUsPageContactUsPage;
       'api::events-page.events-page': ApiEventsPageEventsPage;
       'api::header-footer-page.header-footer-page': ApiHeaderFooterPageHeaderFooterPage;
+      'api::incubation-center.incubation-center': ApiIncubationCenterIncubationCenter;
       'api::landing-page.landing-page': ApiLandingPageLandingPage;
       'api::leaders-page.leaders-page': ApiLeadersPageLeadersPage;
       'api::projects-page.projects-page': ApiProjectsPageProjectsPage;
+      'api::subscription.subscription': ApiSubscriptionSubscription;
     }
   }
 }

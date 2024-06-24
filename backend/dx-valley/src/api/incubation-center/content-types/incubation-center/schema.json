@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "incubation_centers",
+  "info": {
+    "singularName": "incubation-center",
+    "pluralName": "incubation-centers",
+    "displayName": "incubation_center",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "email": {
+      "type": "email"
+    },
+    "date_founded": {
+      "type": "date"
+    },
+    "industry": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+      Course Register Form a Flat Responsive Widget Template :: w3layouts
+    </title>
+    <!-- custom-theme -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta
+      name="keywords"
+      content="Course Register Form Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design"
+    />
+    <script type="application/x-javascript">
+      addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+      	function hideURLbar(){ window.scrollTo(0,1); }
+    </script>
+    <!-- //custom-theme -->
+    <!-- css files -->
+    <link
+      href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=devanagari,latin-ext"
+      rel="stylesheet"
+    />
+    <link
+      href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese"
+      rel="stylesheet"
+    />
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="all" />
+    <!-- //css files -->
+
+    <link rel="stylesheet" href="css/font-awesome.css" />
+    <!-- Font-Awesome-Icons-CSS -->
+  </head>
+  <!-- body starts -->
+  <body>
+    <!-- section -->
+    <section class="register startup">
+      <div class="register-full">
+        <div class="register-left">
+          <div class="register">
+            <div class="logo">
+              <a href="#"
+                ><span class="fa fa-lightbulb" aria-hidden="true"></span
+              ></a>
+            </div>
+            <h1>Register your startup</h1>
+            <p>
+              Accelerate Your Startup's Growth with our incubation center to
+              gain access to a comprehensive support system designed to
+              accelerate your growth. Our center offers state-of-the-art
+              facilities, expert mentorship, and a vibrant community of
+              like-minded entrepreneurs. Benefit from tailored business
+              development programs, funding opportunities, and networking events
+              that will connect you with key industry players. By joining our
+              incubation center, you'll be positioning your startup for success
+              with the resources and guidance needed to navigate the challenges
+              of early-stage business development.
+            </p>
+            <div class="content3">
+              <!-- <ul>
+                <li><a class="" href="#"> Know More</a></li>
+              </ul> -->
+            </div>
+          </div>
+        </div>
+        <div class="register-right">
+          <div class="register-in">
+            <h2><span class="fa fa-pencil"></span> register here</h2>
+            <div class="register-form">
+              <form id="startupForm" action="#" method="post">
+                <div class="fields-grid">
+                  <div class="styled-input agile-styled-input-top">
+                    <input type="text" id="name" name="name" required="" />
+                    <label>Enter Name of the Company</label>
+                    <span></span>
+                  </div>
+                  <div class="styled-input">
+                    <input type="email" id="email" name="email" required="" />
+                    <label>Email</label>
+                    <span></span>
+                  </div>
+                  <div class="styled-input">
+                    <input
+                      type="date"
+                      id="date"
+                      name="date_founded"
+                      required=""
+                    />
+                    <!-- <label>year of foundation</label> -->
+                    <span></span>
+                  </div>
+                  <!-- <div class="styled-input">
+								<input type="password" name="password" required="">
+								<label>Password</label>
+								<span></span>
+							</div> -->
+                  <div class="styled-input agile-styled-input-top">
+                    <select id="category2" required="" class="industry">
+                      <option value="">Industry*</option>
+                      <option value="">software development</option>
+                      <option value="">Agriculture</option>
+                      <!-- <option value="">Part time</option>
+									<option value="">Higher degree</option>
+									<option value="">Graduate</option>
+									<option value="">Pg</option>
+									<option value="">Degree</option> -->
+                    </select>
+                    <span></span>
+                  </div>
+                  <div class="clear"></div>
+                  <label class="checkbox"
+                    ><input type="checkbox" name="checkbox" checked /><i></i>I
+                    agree to the <a href="#">Terms and Conditions</a></label
+                  >
+                </div>
+                <input type="submit" value="Register" />
+              </form>
+            </div>
+          </div>
+          <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+      </div>
+      <!-- copyright -->
+      <!-- //copyright -->
+    </section>
+    <!-- //section -->
+    <script>
+
+      document.getElementById('startupForm').addEventListener('submit', async (event) => {
+          event.preventDefault();
+          const form = event.target; // Retrieve the form element directly
+
+          if (form instanceof HTMLFormElement) {
+            const formData = new FormData(form);
+          //   const data = Object.fromEntries(formData.entries());
+              const dropdownElement = document.getElementsByClassName('industry')[0];
+              const selectedText = dropdownElement.options[dropdownElement.selectedIndex].text;
+
+              // Append the dropdown values to formData
+              formData.append('dropdownText', selectedText);
+
+              // Convert formData to a plain object
+              const data = Object.fromEntries(formData.entries());
+
+            try {
+              const response = await fetch('http://localhost:1338/api/incubation', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+              });
+
+              if (response.ok) {
+                alert('Startup registered successfully!');
+              } else {
+                alert('Failed to register startup.');
+              }
+            } catch (error) {
+              console.error('Error:', error);
+              alert('An error occurred while registering the startup.');
+            }
+          } else {
+            console.error('Form element not found');
+          }
+        });
+    </script>
+  </body>
+  <!-- //body ends -->
+</html>

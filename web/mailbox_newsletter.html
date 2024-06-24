@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Mailbox Newsletter Flat Responsive Widget Template :: w3layouts
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta
+      name="keywords"
+      content="Mailbox Newsletter Widget Tab Form,Login Forms,Sign up Forms,Registration Forms,News letter Forms,Elements"
+    />
+    <script type="application/x-javascript">
+      addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
+    </script>
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+  </head>
+
+  <body>
+    <div class="padding">
+      <div class="mail-img-w3ls">
+        <img src="./images/mailbox.png" alt " ">
+        <span> </span>
+      </div>
+
+      <div class="header-agileits">
+        <h1>Mailbox Newsletter</h1>
+        <p>
+          Subscribe to receive our latest news 
+        </p>
+      </div>
+
+      <div class="design-w3l">
+        <div class="mail-form-agile">
+          <form action="#" method="post" id="subscribe-form">
+            <input
+              type="text"
+              name="email"
+              id="email"
+              placeholder="email..."
+              required=""
+            />
+            <input type="submit" value="Subscribe" />
+          </form>
+        </div>
+        <div class="clear"></div>
+      </div>
+
+      <div class="footer"></div>
+    </div>
+    <script>
+      document
+        .getElementById("subscribe-form")
+        .addEventListener("submit", async function (event) {
+          event.preventDefault();
+
+          const email = document.getElementById("email").value;
+
+          try {
+            const response = await fetch(
+              "http://localhost:1338/api/subscription",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ email }),
+              }
+            );
+
+            if (!response.ok) {
+              throw new Error("Something went wrong");
+            }
+
+            const data = await response.json();
+            alert("Subscription successful!");
+          } catch (error) {
+            alert("Failed to subscribe");
+          }
+        });
+    </script>
+    <!--  icons are Taken from  http://www.flaticon.com/   -->
+  </body>
+</html>
