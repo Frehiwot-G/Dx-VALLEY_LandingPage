@@ -6,9 +6,12 @@ document.addEventListener("DOMContentLoaded", fetchProjectData);
 document.addEventListener("DOMContentLoaded", registerUser);
 document.addEventListener("DOMContentLoaded", displayWorkData);
 
+const strapiUrl="http://10.1.151.64:1337";
+// const strapiUrl = process.env.STRAPI_URL;
+
 async function displayAboutData() {
   const response_about = await fetch(
-    "http://localhost:1338/api/about-us-page?populate[block][populate][image][fields][0]=url&populate[block][populate][about_us][populate][image][fields][0]=url&populate[block][populate][about_page_2][populate]=true"
+    `${strapiUrl}/api/about-us-page?populate[block][populate][image][fields][0]=url&populate[block][populate][about_us][populate][image][fields][0]=url&populate[block][populate][about_page_2][populate]=true`
   );
   const data = await response_about.json();
 
@@ -24,7 +27,8 @@ async function displayAboutData() {
     if (block.__component === "layout.about" && block.about_us) {
       aboutUstitle.innerHTML = `${block.about_us.title}`;
       aboutUsdescription.innerHTML = `${block.about_us.description}`;
-      aboutUsImage_1.src = `../backend/dx-valley/public${block.about_us.image.data.attributes.url}`;
+      // aboutUsImage_1.src = `../backend/dx-valley/public${block.about_us.image.data.attributes.url}`;
+      aboutUsImage_1.src = `${strapiUrl}${block.about_us.image.data.attributes.url}`;
     }
   });
 
@@ -45,7 +49,7 @@ async function displayAboutData() {
 
 async function displayHomeData() {
   const response_about = await fetch(
-    "http://localhost:1338/api/landing-page?populate[block][populate][email]=true&populate[block][populate][phone]=true&populate[block][populate][address]=true&populate[block][populate][image][fields][0]=url&populate[block][populate][topic][populate][link][populate]=true"
+    `${strapiUrl}/api/landing-page?populate[block][populate][email]=true&populate[block][populate][phone]=true&populate[block][populate][address]=true&populate[block][populate][image][fields][0]=url&populate[block][populate][topic][populate][link][populate]=true`
   );
   const data = await response_about.json();
 
@@ -61,7 +65,8 @@ async function displayHomeData() {
   contact_address.innerHTML = home_data[0].Address;
 
   // banner_id.style.background = 'url("../backend/dx-valley/public`${home_data[0].image.data.attributes.url}`")'
-  banner_id.style.background = `url("../backend/dx-valley/public${home_data[0].image.data.attributes.url}")`;
+  // banner_id.style.background = `url("../backend/dx-valley/public${home_data[0].image.data.attributes.url}")`;
+  banner_id.style.background = `url("${strapiUrl}${home_data[0].image.data.attributes.url}")`;
 
   home_address.innerHTML = home_data[0].Address;
   home_phone.innerText = home_data[0].phone;
@@ -90,7 +95,7 @@ async function displayHomeData() {
 
 async function displayHeaderAndFooterData() {
   const response_about = await fetch(
-    "http://localhost:1338/api/header-footer-page?populate[blocks][populate][image][field][0]=url&populate[blocks][populate][pages][populate]=true&populate[blocks][populate][email]=true&populate[blocks][populate][phone]=true&populate[blocks][populate][text]=true&populate[blocks][populate][socials][populate]=true"
+    `${strapiUrl}/api/header-footer-page?populate[blocks][populate][image][field][0]=url&populate[blocks][populate][pages][populate]=true&populate[blocks][populate][email]=true&populate[blocks][populate][phone]=true&populate[blocks][populate][text]=true&populate[blocks][populate][socials][populate]=true`
   );
   let data = await response_about.json();
   const content = document.getElementById("footerContent");
@@ -113,7 +118,7 @@ async function displayHeaderAndFooterData() {
   content.innerHTML = footerContent;
   footer_text.innerHTML = headreFooterdata[1].text;
 
-  footer_back.style.background = `url("../backend/dx-valley/public${headreFooterdata[1].image.data.attributes.url}")`;
+  footer_back.style.background = `url("${strapiUrl}${headreFooterdata[1].image.data.attributes.url}")`;
 
   const footer_email = document.getElementById("footer_email");
   footer_email.innerHTML = headreFooterdata[1].email;
@@ -142,7 +147,7 @@ async function displayHeaderAndFooterData() {
 
 async function fetchProjectData() {
   const response_project = await fetch(
-    "http://localhost:1338/api/projects-page?populate[block][populate][projects][populate][image][fields]&populate[block][populate][projects][populate][link][populate]=true&populate[block][populate][work][populate][description][populate]=true&populate[block][populate][work][populate][image]=url&populate[block][populate][category][populate]=true"
+    `${strapiUrl}/api/projects-page?populate[block][populate][projects][populate][image][fields]&populate[block][populate][projects][populate][link][populate]=true&populate[block][populate][work][populate][description][populate]=true&populate[block][populate][work][populate][image]=url&populate[block][populate][category][populate]=true`
   );
 
   const data = await response_project.json();
@@ -157,7 +162,7 @@ async function fetchProjectData() {
     let listItem = `
           <div class="col-lg-4 card" data-name=${project.category}>
               <div class="agileits-services-grids">
-                  <img src="../backend/dx-valley/public${project.image.data.attributes.formats.thumbnail.url}" alt="project image" class="image-size">
+                  <img src="${strapiUrl}${project.image.data.attributes.formats.thumbnail.url}" alt="project image" class="image-size">
 
                   <h4 class="sec-title">${project.title}
                   </h4>
@@ -192,7 +197,7 @@ async function fetchProjectData() {
         let istItem = `
                 <div class="col-lg-4 card" data-name=${project.category}>
                 <div class="agileits-services-grids">
-                    <img src="../backend/dx-valley/public${project.image.data.attributes.formats.thumbnail.url}" alt="project image" class="image-size">
+                    <img src="${strapiUrl}${project.image.data.attributes.formats.thumbnail.url}" alt="project image" class="image-size">
 
                     <h4 class="sec-title">${project.title}
                     </h4>
@@ -215,7 +220,7 @@ async function fetchProjectData() {
 
 async function displayWorkData() {
   const response_project = await fetch(
-    "http://localhost:1338/api/projects-page?populate[block][populate][projects][populate][image][fields]&populate[block][populate][projects][populate][link][populate]=true&populate[block][populate][work][populate][description][populate]=true&populate[block][populate][work][populate][image]=url&populate[block][populate][category][populate]=true"
+    `${strapiUrl}/api/projects-page?populate[block][populate][projects][populate][image][fields]&populate[block][populate][projects][populate][link][populate]=true&populate[block][populate][work][populate][description][populate]=true&populate[block][populate][work][populate][image]=url&populate[block][populate][category][populate]=true`
   );
 
   const data = await response_project.json();
@@ -245,10 +250,10 @@ async function displayWorkData() {
   title2.innerHTML = project_data[1].work[1].title;
   title4.innerHTML = project_data[1].work[3].title;
 
-  image1.src = `../backend/dx-valley/public${project_data[1].work[0].image.data.attributes.url}`;
-  image3.src = `../backend/dx-valley/public${project_data[1].work[2].image.data.attributes.url}`;
-  image2.src = `../backend/dx-valley/public${project_data[1].work[1].image.data.attributes.url}`;
-  image4.src = `../backend/dx-valley/public${project_data[1].work[3].image.data.attributes.url}`;
+  image1.src = `${strapiUrl}${project_data[1].work[0].image.data.attributes.url}`;
+  image3.src = `${strapiUrl}${project_data[1].work[2].image.data.attributes.url}`;
+  image2.src = `${strapiUrl}${project_data[1].work[1].image.data.attributes.url}`;
+  image4.src = `${strapiUrl}${project_data[1].work[3].image.data.attributes.url}`;
 
   description_11.innerHTML = project_data[1].work[0].description[0].description;
   description_12.innerHTML = project_data[1].work[0].description[1].description;
@@ -298,7 +303,7 @@ async function registerUser() {
 
     if (email && password) {
       // You can add AJAX or Fetch API calls here to send data to the server
-      fetch("http://localhost:1338/api/auth/local/register", {
+      fetch("${strapiUrl}/api/auth/local/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

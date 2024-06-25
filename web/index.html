@@ -173,8 +173,9 @@
 
                     <script>
                         async function displaySliderImageData() {
+                            const strapiUrl="http://10.1.151.64:1337";
                             const response_about = await fetch(
-                                "http://localhost:1338/api/about-us-page?populate[block][populate][image][fields][0]=url&populate[block][populate][about_us][populate][image][fields][0]=url&populate[block][populate][about_page_2][populate]=true"
+                                `${strapiUrl}/api/about-us-page?populate[block][populate][image][fields][0]=url&populate[block][populate][about_us][populate][image][fields][0]=url&populate[block][populate][about_page_2][populate]=true`
                             );
                             const data = await response_about.json();
                             const about_ul_image = document.getElementsByClassName("ulImage")[0];
@@ -188,7 +189,7 @@
                                 li_tag.style.opacity = 0;
                                 li_tag.style.position = 'absolute';
                                 li_tag.style.zIndex = 1;
-                                div_tag.style.background = `url("../backend/dx-valley/public${image.attributes.url}") no-repeat center center / cover`;
+                                div_tag.style.background = `url("${strapiUrl}${image.attributes.url}") no-repeat center center / cover`;
                                 li_tag.appendChild(div_tag);
                                 about_ul_image.appendChild(li_tag);
                             });
@@ -410,9 +411,10 @@
 
         <script>
             async function displayLeadersData() {
+                const strapiUrl="http://10.1.151.64:1337";
                 try {
                     const response_leaders = await fetch(
-                    "http://localhost:1338/api/leaders-page?populate[block][populate][leaders][populate][image][fields][0]=url"
+                    `${strapiUrl}/api/leaders-page?populate[block][populate][leaders][populate][image][fields][0]=url`
                     );
                     const data = await response_leaders.json();
 
@@ -424,7 +426,7 @@
                     li_slide.className = 'leader-slide';
                     li_slide.innerHTML = `
                         <div class="testi-pos">
-                        <img src="http://localhost:1338${leader.image.data.attributes.url}" alt="${leader.name}" class="img-fluid rounded-circle mb-3" />
+                        <img src="${strapiUrl}${leader.image.data.attributes.url}" alt="${leader.name}" class="img-fluid rounded-circle mb-3" />
                         <h4>${leader.name}</h4>
                         <span>${leader.position}</span>
                         </div>

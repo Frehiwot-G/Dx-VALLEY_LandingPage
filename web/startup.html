@@ -131,6 +131,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       document.getElementById('startupForm').addEventListener('submit', async (event) => {
           event.preventDefault();
           const form = event.target; // Retrieve the form element directly
+          const strapiUrl="http://10.1.151.64:1337";
 
           if (form instanceof HTMLFormElement) {
             const formData = new FormData(form);
@@ -145,7 +146,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
               const data = Object.fromEntries(formData.entries());
 
             try {
-              const response = await fetch('http://localhost:1338/api/incubation', {
+              const response = await fetch(`${strapiUrl}/api/incubation`, {
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/json',

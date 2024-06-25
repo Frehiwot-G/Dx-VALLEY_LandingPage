@@ -55,10 +55,11 @@
           event.preventDefault();
 
           const email = document.getElementById("email").value;
+          const strapiUrl="http://10.1.151.64:1337";
 
           try {
             const response = await fetch(
-              "http://localhost:1338/api/subscription",
+              `${strapiUrl}/api/subscription`,
               {
                 method: "POST",
                 headers: {
