@@ -887,37 +887,6 @@ export interface ApiEventEvent extends Schema.CollectionType {
   };
 }
 
-export interface ApiEventsPageEventsPage extends Schema.SingleType {
-  collectionName: 'events_pages';
-  info: {
-    singularName: 'events-page';
-    pluralName: 'events-pages';
-    displayName: 'Events_page';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    title: Attribute.String;
-    events: Attribute.Component<'layout.event'>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::events-page.events-page',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::events-page.events-page',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiHeaderFooterPageHeaderFooterPage extends Schema.SingleType {
   collectionName: 'header_footer_pages';
   info: {
@@ -1137,7 +1106,6 @@ declare module '@strapi/types' {
       'api::about-us-page.about-us-page': ApiAboutUsPageAboutUsPage;
       'api::contact-us-page.contact-us-page': ApiContactUsPageContactUsPage;
       'api::event.event': ApiEventEvent;
-      'api::events-page.events-page': ApiEventsPageEventsPage;
       'api::header-footer-page.header-footer-page': ApiHeaderFooterPageHeaderFooterPage;
       'api::incubation-center.incubation-center': ApiIncubationCenterIncubationCenter;
       'api::landing-page.landing-page': ApiLandingPageLandingPage;

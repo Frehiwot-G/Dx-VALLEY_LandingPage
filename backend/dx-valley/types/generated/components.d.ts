@@ -145,17 +145,6 @@ export interface LayoutContactUs extends Schema.Component {
   };
 }
 
-export interface LayoutEvent extends Schema.Component {
-  collectionName: 'components_layout_events';
-  info: {
-    displayName: 'Event';
-  };
-  attributes: {
-    title: Attribute.String;
-    description: Attribute.Text;
-  };
-}
-
 export interface LayoutFooter extends Schema.Component {
   collectionName: 'components_layout_footers';
   info: {
@@ -246,7 +235,6 @@ declare module '@strapi/types' {
       'layout.about': LayoutAbout;
       'layout.category': LayoutCategory;
       'layout.contact-us': LayoutContactUs;
-      'layout.event': LayoutEvent;
       'layout.footer': LayoutFooter;
       'layout.heading': LayoutHeading;
       'layout.home-page': LayoutHomePage;
